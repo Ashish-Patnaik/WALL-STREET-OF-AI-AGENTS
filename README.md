@@ -150,16 +150,17 @@ We completely bypassed the stock Gradio chat-interface to build a stunning, Neub
 
 ---
 
-## 🏅 Badges Claimed
+## 🏅 Badges Targeted
 
 | Badge | The Case |
 |---|---|
 | 🍄 **Thousand Token Wood** | A weird, delightful, voyeuristic simulation. The AI doesn't help you build the game; the AI *is* the game. |
 | 🔌 **Off the Grid** | Zero cloud APIs. `n_gpu_layers=0` gracefully falls back to CPU. The entire firm runs in RAM. |
-| 🦙 **Llama Champion** | Raw `llama-cpp-python` runtime. JSON Schema enforcement at the C++ logit layer is load-bearing. |
+| 🦙 **Llama Champion** | Raw `llama-cpp-python` runtime. JSON Schema enforcement at the C++ logit layer is load-bearing and gguf inference. |
 | 🎨 **Off-Brand** | Phaser.js + custom CSS injected via FastAPI into Gradio. You wouldn't know it's Gradio. |
-| 🐜 **Tiny Titan** | 1B params. Q4 quantized. 2 vCPUs. 4 simultaneous autonomous agents. Continuous uptime. |
-| 🏮 **OpenBMB** | `MiniCPM5-1B-GGUF` isn't a fallback—it's the entire cognitive brain of the operation. |
+| 🐜 **Tiny Titan** | 1B params. gguf. 4 simultaneous autonomous agents. Continuous uptime. |
+| 🏮 **OpenBMB** | `openbmb/MiniCPM5-1B-GGUF` isn't a fallback—it's the entire cognitive brain of the operation. |
+| 🏮 **Nvidia** | `nvidia/NVIDIA-Nemotron-3-Nano-4B-GGUF` for highly reasoning and factual decision. |
 
 ---
 
@@ -167,12 +168,12 @@ We completely bypassed the stock Gradio chat-interface to build a stunning, Neub
 
 No API keys. No `.env` files required. 
 ```bash
-git clone https://huggingface.co/spaces/YOUR_USERNAME/Wall-Street-of-AI-Agents
+git clone https://huggingface.co/spaces/build-small-hackathon/Wall-Street-of-AI-Agents
 cd Wall-Street-of-AI-Agents
 
 pip install -r requirements.txt
 
-# Download MiniCPM-1B-sft-q4_0.gguf from HuggingFace and place it in /models/
+# Automatically downloads the required model and runs the llama cpp inference
 
 python app.py
 ```
@@ -182,7 +183,8 @@ python app.py
 
 ## 🙏 Credits
 
-* **[OpenBMB](https://huggingface.co/openbmb)** — `MiniCPM5-1B` is the entire cognitive layer of this firm.
+* **[OpenBMB](https://huggingface.co/openbmb)** — `MiniCPM5-1B-GGUF` is the cognitive layer of this firm.
+* **[Nvidia](https://huggingface.co/nvidia)** — `NVIDIA-Nemotron-3-Nano-4B-GGUF` is the cognitive layer of this firm.
 * **[llama.cpp](https://github.com/ggerganov/llama.cpp)** — The runtime that makes CPU-only multi-agent simulation viable and fast.
 * **[Phaser.js](https://phaser.io)** — The 2D HTML5 engine living inside the Gradio iframe.
 * **[Hugging Face](https://huggingface.co)** — Docker Spaces and the hackathon that brought this to life.
