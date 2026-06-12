@@ -19,7 +19,7 @@
 [![Runtime](https://img.shields.io/badge/Runtime-llama.cpp-22C55E?style=for-the-badge)](#)
 [![Agents](https://img.shields.io/badge/Agents-4_Autonomous_Traders-3B82F6?style=for-the-badge)](#)
 
-**▶️ [Enter the Trading Floor (Live Space)](https://huggingface.co/spaces/build-small-hackathon/Wall-Street-of-AI-Agents) · 🎬 [Watch the Demo Video](https://youtu.be/1XZuUsiwuTA) · 📓 [Read the Field Note](#) . 📢 [Read the Social Post ↗](#)**
+**▶️ [Enter the Trading Floor (Live Space)](https://huggingface.co/spaces/build-small-hackathon/Wall-Street-of-AI-Agents) · 🎬 [Watch the Demo Video](https://youtu.be/1XZuUsiwuTA) · 📓 [Read the Field Note](https://huggingface.co/blog/build-small-hackathon/wall-street-of-ai-agents) . 📢 [Read the Social Post ↗](https://x.com/ashdebugs/status/2065443044833562840)**
 
 </div>
 
@@ -71,7 +71,7 @@ Four traders. Four worldviews. One shared office where they cannot stop running 
 <td width="25%" align="center">
 <img src="dist/assets/faces/Alice.png" width="140" alt="Alice"><br>
 <h3>📊 Alice</h3>
-<b>Quant Algo Trader</b><br>
+<b>The Algo Trader</b><br>
 <i>Cold. Methodical. Speaks in probabilities. Ignores breaking news unless it clears her signal threshold. Consistently the most rational agent in any room she walks into.</i>
 </td>
 
