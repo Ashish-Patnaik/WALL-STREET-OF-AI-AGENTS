@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="https://cdn-uploads.huggingface.co/production/uploads/679f1bd801f97ba49a8e81ec/Cmf3W6hEo_PwrBp2PmZSR.png" width="900">
+<img src="https://cdn-uploads.huggingface.co/production/uploads/679f1bd801f97ba49a8e81ec/9C_0e8PbY9TAjtd7xrOwE.png" width="900">
 
 </div>
 
