@@ -15,11 +15,11 @@
 
 
 [![Hackathon](https://img.shields.io/badge/Build_Small_Hackathon_2026-🍄_Thousand_Token_Wood-8B5CF6?style=for-the-badge)](https://huggingface.co/build-small-hackathon)
-[![Model](https://img.shields.io/badge/Model-MiniCPM5_1B_GGUF-F97316?style=for-the-badge)](https://huggingface.co/openbmb/MiniCPM5-1B-GGUF)
+[![Model](https://img.shields.io/badge/Model-Small%20Language%20Models-F97316?style=for-the-badge)](https://huggingface.co/openbmb/MiniCPM5-1B-GGUF)
 [![Runtime](https://img.shields.io/badge/Runtime-llama.cpp-22C55E?style=for-the-badge)](#)
 [![Agents](https://img.shields.io/badge/Agents-4_Autonomous_Traders-3B82F6?style=for-the-badge)](#)
 
-**▶️ [Enter the Trading Floor (Live Space)](https://huggingface.co/spaces/build-small-hackathon/Wall-Street-of-AI-Agents) · 🎬 [Watch the Demo Video](https://youtu.be/1XZuUsiwuTA) · 📓 [Read the Build Log](#)**
+**▶️ [Enter the Trading Floor (Live Space)](https://huggingface.co/spaces/build-small-hackathon/Wall-Street-of-AI-Agents) · 🎬 [Watch the Demo Video](https://youtu.be/1XZuUsiwuTA) · 📓 [Read the Field Note](#) . 📢 [Read the Social Post ↗](#)**
 
 </div>
 
@@ -35,10 +35,10 @@
 
 Most AI agent frameworks are built for B2B tasks—writing code, scraping data, summarizing emails. We wanted to build something weird, delightful, and highly voyeuristic. 
 
-**Wall St. of Agents** is a high-frequency trading reality show. Four AI agents, each with a distinct personality and financial strategy, wander a pixel-art office, overhear each other, and make real trades—continuously, forever, without a single human input.
+**Wall Street of AI Agents** is a high-frequency trading reality show. Four AI agents, each with a distinct personality and financial strategy, wander a pixel-art office, overhear each other, and make real trades—continuously, forever, without a single human input.
 
 But beneath the retro 2D graphics lies something much more ambitious: **a visual benchmark for testing multi-agent collaboration and LLM reasoning.** 
-By trapping a tiny 1-Billion parameter model in a dynamic financial simulation, we can stress-test its capabilities live:
+By trapping a tiny 1-Billion or 2-Billion parameter model(or any small model) in a dynamic financial simulation, we can stress-test its capabilities live:
 * **Strict Instruction Following:** Can the model adhere to a rigid JSON schema while adopting a complex persona?
 * **Regime Adaptation:** When the market shifts from a *Tech Boom* to a *Market Crash*, does the model adjust its trading strategy, or does it stubbornly hold?
 * **Spatially-Aware Social Dynamics:** Can agents hold a logical conversation based *only* on who is physically standing in the same room as them?
@@ -87,9 +87,9 @@ Four traders. Four worldviews. One shared office where they cannot stop running 
 
 ---
 
-## 🧠 Lightweight Agentic Architecture
+## 🧠 Lightweight Multi Agentic Architecture
 
-Traditional multi-agent frameworks (like AutoGen or CrewAI) are notoriously heavy and slow. We built a hyper-lightweight, spatially-aware architecture tailored specifically for edge computing and small GGUF models.
+Traditional multi-agent frameworks (like AutoGen or CrewAI) are notoriously heavy and slow. I built a hyper-lightweight, spatially-aware architecture tailored specifically for edge computing and small GGUF models.
 
 ### 1. Spatial Collaboration (No Message Bus Required)
 No orchestration layer. No shared memory pool. **Physical proximity drives conversation.** 
@@ -102,14 +102,24 @@ If Alex and Sarah are both in the VC Office, Sarah's last spoken line gets injec
 
 ### 2. The Financial Evaluation Engine
 The simulation models four distinct market regimes. Each one rewards different strategies and punishes others. 
-* 🚀 **Crypto Frenzy:** Crypto (+$3,500) | Bonds (−$800)
-* 💀 **Market Crash:** Bonds (+$1,500) | Crypto (−$4,000)
+* 📈 **Tech Boom:** Tech (+$1,800) | Crypto (+$200) | Bonds (−$500)
+* 🚀 **Crypto Frenzy:** Crypto (+$3,500) | Tech (−$500) | Bonds (−$800)
+* 💀 **Market Crash:** Bonds (+$1,500) | Tech (−$2,500) | Crypto (−$4,000)
+* 🐢 **Stagnant Market:** Hold (+$100) | *Any active trade loses money to fees* (−$200)
 
 Watch a 40-tick simulation and you'll see genuine portfolio divergence driven entirely by personality—not luck, not RNG, but the model's consistent interpretation of four different personas under pressure.
 
 ### 3. The ⚡ TRIGGER CHAOS Button
 One button. No text box. No prompt engineering required from the user.
-Hit it, and the system auto-generates a breaking news headline, injects it into the shared news feed, and flips the market state to `MARKET CRASH`. Every agent reads the same event through their own filter. Sarah smiles and rebalances. Mike screams and panic-sells. 
+Hit it, and the system auto-generates a breaking news headline, injects it into the shared news feed, and flips the market state to `MARKET CRASH`. Every agent reads the same event through their own filter. Sarah smiles and rebalances. Mike screams depending on their strategies and Agent decision and panic-sells. 
+
+<img width="1362" height="605" alt="Screenshot 2026-06-11 185505" src="https://github.com/user-attachments/assets/4d37293d-291a-4fe5-958b-f5be39aa9510" />
+
+
+- **AI agents can go bankrupt too—one wrong decision in the wrong market regime can wipe out everything**
+  
+
+<img width="1347" height="601" alt="bj2" src="https://github.com/user-attachments/assets/85f97a17-1e8b-4ba0-95ad-5ec9cee1ae4f" />
 
 ---
 
@@ -135,7 +145,7 @@ response_format={
     }
 }
 ```
-This constraint makes the `MiniCPM5-1B` punch *massively* above its weight class. It runs cleanly on a 2-vCPU Hugging Face Space—or flies at lightning speed if it auto-detects a local GPU—without ever crashing the game loop.
+This constraint makes the `MiniCPM5-1B-GGUF` and `NVIDIA-Nemotron-3-Nano-4B-GGUF` punch *massively* above its weight class. It runs cleanly on a 2-vCPU Hugging Face Space—or flies at lightning speed if it auto-detects a local GPU—without ever crashing the game loop.
 
 ---
 
@@ -150,17 +160,20 @@ We completely bypassed the stock Gradio chat-interface to build a stunning, Neub
 
 ---
 
-## 🏅 Badges Targeted
+## 🏅 Badges & Quests Targeted
 
-| Badge | The Case |
+| Badge / Award | The Case |
 |---|---|
 | 🍄 **Thousand Token Wood** | A weird, delightful, voyeuristic simulation. The AI doesn't help you build the game; the AI *is* the game. |
-| 🔌 **Off the Grid** | Zero cloud APIs. `n_gpu_layers=0` gracefully falls back to CPU. The entire firm runs in RAM. |
-| 🦙 **Llama Champion** | Raw `llama-cpp-python` runtime. JSON Schema enforcement at the C++ logit layer is load-bearing and gguf inference. |
-| 🎨 **Off-Brand** | Phaser.js + custom CSS injected via FastAPI into Gradio. You wouldn't know it's Gradio. |
-| 🐜 **Tiny Titan** | 1B params. gguf. 4 simultaneous autonomous agents. Continuous uptime. |
-| 🏮 **OpenBMB** | `openbmb/MiniCPM5-1B-GGUF` isn't a fallback—it's the entire cognitive brain of the operation. |
-| 🏮 **Nvidia** | `nvidia/NVIDIA-Nemotron-3-Nano-4B-GGUF` for highly reasoning and factual decision. |
+| 🤖 **Best Agent** | Not a chatbot. A continuous, autonomous multi-agent ecosystem with spatial awareness, memory, and proactive financial reasoning. |
+| 🎬 **Best Demo** | The app features a highly visual, reality-TV style UI. The submission includes a polished 2:35 minute walkthrough and a narrative social post. |
+| 🏆 **Bonus Quest Champion** | We stacked the sash: Off the Grid (Local CPU), Off-Brand (Phaser.js via Gradio), Llama Champion (llama.cpp JSON Schema), and Field Notes (Dev Journal). |
+| 🔌 **Off the Grid** | Zero cloud APIs. `n_gpu_layers=0` gracefully falls back to CPU. The entire firm runs locally in RAM. |
+| 🦙 **Llama Champion** | Raw `llama-cpp-python` runtime. JSON Schema enforcement at the C++ logit layer completely stops JSON hallucinations. |
+| 🎨 **Off-Brand** | Phaser.js + custom CSS injected via FastAPI into an iframe. You wouldn't know it's Gradio. |
+| 🐜 **Tiny Titan** | Built to run seamlessly on models ≤4B parameters. 4 simultaneous autonomous agents. Continuous uptime. |
+| 🏮 **OpenBMB** | `MiniCPM5-1B-GGUF` isn't a fallback—it's a primary cognitive engine driving autonomous personas concurrently. |
+| 🟩 **NVIDIA** | Utilizing `Nemotron-3-Nano-4B-GGUF` for razor-sharp financial reasoning, grounded trade logic, and complex market adaptation. |
 
 ---
 
