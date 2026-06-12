@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VenturePit Reality TV</title>
+    <style>
+      body {
+        background: #0b0c10;
+        color: #c5c6c7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        font-family: 'Courier New', Courier, monospace;
+        overflow: hidden;
+      }
+
+      #main-container {
+        display: flex;
+        gap: 15px;
+        width: 100vw;
+        height: 100vh;
+        padding: 15px;
+        box-sizing: border-box;
+      }
+
+      /* 🔴 WIDENED THE LEFT SIDEBAR TO 280px */
+      #left-sidebar {
+        width: 280px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #app {
+        flex: 1;
+        min-width: 0;
+        border: 2px solid #45a29e;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(102, 252, 241, 0.2);
+        display: flex;
+      }
+
+      #right-sidebar {
+        width: 260px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .panel {
+        background: #1f2833;
+        border: 1px solid #45a29e;
+        border-radius: 8px;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .panel-title {
+        margin: 0 0 10px 0;
+        color: #66fcf1;
+        font-size: 15px;
+        border-bottom: 1px solid #45a29e;
+        padding-bottom: 6px;
+      }
+
+      /* ==========================================
+         🔴 NEW LEADERBOARD INLINE CSS 
+         ========================================== */
+      .leaderboard-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: #0d1117;
+        border: 1px solid #45a29e;
+        border-radius: 6px;
+        padding: 8px 10px;
+      }
+
+      .leaderboard-card img {
+        width: 36px;
+        height: 36px;
+        border-radius: 6px;
+        border: 1px solid #45a29e;
+        background: #333;
+        object-fit: cover;
+        flex-shrink: 0;
+      }
+
+      .leaderboard-info {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+      }
+
+      .leaderboard-name {
+        color: #66fcf1;
+        font-size: 14px;
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .leaderboard-location {
+        color: #888;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .leaderboard-cash {
+        font-size: 13px;
+        font-weight: bold;
+        flex-shrink: 0;
+        padding: 4px 6px;
+        border-radius: 4px;
+        color: #fff;
+      }
+      /* ========================================== */
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        overflow-y: auto;
+        flex: 1;
+      }
+
+      li {
+        font-size: 12px;
+        margin-bottom: 10px;
+        line-height: 1.4;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 5px;
+      }
+
+      .name {
+        color: #ff007f;
+        font-weight: bold;
+      }
+
+      #chaos-btn {
+        background: #e94560;
+        color: white;
+        border: none;
+        padding: 15px;
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        text-transform: uppercase;
+        margin-top: auto;
+      }
+
+      #chaos-btn:hover {
+        background: #ff2a4b;
+      }
+
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-thumb { background: #45a29e; border-radius: 3px; }
+    </style>
+    <script type="module" crossorigin src="./assets/index-BxlloTNa.js"></script>
+  </head>
+  <body>
+    <div id="main-container">
+
+      <!-- LEFT SIDEBAR: Live Leaderboard -->
+      <div id="left-sidebar">
+        <div class="panel" style="flex: 1;">
+          <h3 class="panel-title">🏆 Live Leaderboard</h3>
+          <div id="leaderboard-feed" style="overflow-y: auto; display: flex; flex-direction: column; gap: 8px; height: 100%;"></div>
+        </div>
+      </div>
+
+      <!-- CENTER: Phaser Game Canvas -->
+      <div id="app"></div>
+
+      <!-- RIGHT SIDEBAR: Timeline & Confession -->
+      <div id="right-sidebar">
+        <div class="panel" style="flex: 1.5;">
+          <h3 class="panel-title">🌍 World Timeline</h3>
+          <ul id="world-timeline-feed"></ul>
+        </div>
+        <div class="panel" style="flex: 0.3; border-color: #f59e0b; background: #1a1a2e; align-items: center; justify-content: center;">
+          <div style="color: #888; font-size: 10px; text-transform: uppercase; font-weight: bold; letter-spacing: 1px;">Current Market Condition</div>
+          <div id="market-status" style="color: #f59e0b; font-size: 16px; font-weight: bold; text-align: center; margin-top: 5px; text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);">
+            Loading Market...
+          </div>
+        </div>
+
+        <div class="panel" style="flex: 1.5;">
+          <h3 class="panel-title">📉 Trading Floor Timeline</h3>
+          <ul id="trading-timeline-feed"></ul> <!-- CHANGED ID -->
+        </div>
+
+        <div class="panel" style="flex: 0.8; border-color: #ff007f;">
+          <h3 class="panel-title" style="color: #ff007f;">🤫 Confession Booth</h3>
+          <div id="confession-text" style="font-size: 12px; color: #ccc; font-style: italic; overflow-y: auto;">
+            Waiting for an agent to confess...
+          </div>
+        </div>
+
+        <button id="chaos-btn">⚡ Trigger Chaos</button>
+      </div>
+
+    </div>
+
+  </body>
+</html>

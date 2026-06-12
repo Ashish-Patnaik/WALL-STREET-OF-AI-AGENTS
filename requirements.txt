@@ -1,0 +1,7 @@
+--extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
+fastapi
+uvicorn
+gradio
+llama-cpp-python
+pydantic
+python-dotenv
